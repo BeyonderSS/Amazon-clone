@@ -16,7 +16,7 @@ function Header() {
             width={150}
             height={40}
             object-fit="contain"
-            className="cursor-pointer"
+            className="cursor-pointer p-3"
           />
         </div>
 
