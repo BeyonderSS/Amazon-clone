@@ -2,10 +2,19 @@ import Image from "next/image";
 import { useState } from "react"
 import { StarIcon } from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slices/basketSlice";
 
 
 function Product({id,title,price,description,category,image}) {
-    
+    const dispatch =useDispatch();
+    const addItemsToBasket = () => {
+        const product = {
+            id,title,price,description,category,image
+        };
+        dispatch(addToBasket(product));
+    };
+
     const [rating] = useState(5 );
     return(
 
@@ -36,7 +45,7 @@ function Product({id,title,price,description,category,image}) {
 
                 </div>
 
-                <button className=" mt-auto button ">Add to Basket</button>
+                <button  onClick={addItemsToBasket}className=" mt-auto button ">Add to Basket</button>
 
         </div>
     )
